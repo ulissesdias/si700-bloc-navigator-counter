@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:si1700_bloc_navigator_counter/bloc/counter_bloc.dart';
 import 'package:si1700_bloc_navigator_counter/bloc/counter_state.dart';
-import 'package:si1700_bloc_navigator_counter/view/second_screen.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class MySecondPage extends StatefulWidget {
+  MySecondPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MySecondPageState createState() => _MySecondPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MySecondPageState extends State<MySecondPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,11 +52,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       /*
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (_) {
-                        return BlocProvider.value(
-                            value: BlocProvider.of<CounterBloc>(context),
-                            child: MySecondPage(title: "Second Page"));
+                        return BlocProvider(
+                            create: (context) => CounterBloc(),
+                            child: MySecondPage(title: "Third Page"));
                       }));*/
-                      Navigator.of(context).pushNamed("/second");
+                      Navigator.of(context).pushNamed("/third");
                     },
                     child: Icon(Icons.forward))
               ],
